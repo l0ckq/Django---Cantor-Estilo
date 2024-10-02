@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suas Músicas XD</title>
+</head>
+<body>
+    
+    <h1>Lista de Músicas</h1>
+    <a href="{% url 'cadastrar_musica' %}">Cadastrar Nova Música</a>
+    <ul>
+        {% for musica in musicas %} <!-- Lógica é a mesma para percorrer e listar  -->
+                        
+        <li>
+            {{ musica.nome }} - {{ musica.estado }} <!-- Se refere à Model -->
+            <a href="{% url 'editar_musica' musica.id %}">Editar</a>
+            <a href="{% url 'excluir_musica' musica.id %}">Excluir</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
